@@ -37,8 +37,6 @@ def main():
     asteroid_field = AsteroidField()
 
 
-
-
 #glowna petla gry
     while True:
         for event in pygame.event.get():
@@ -57,22 +55,18 @@ def main():
             if obj.collision_check(player):
                 exit("Game over!")
 
-
         for obj in asteroids:
             for obj2 in bullets:
                 if obj.collision_check(obj2):
-                    obj.kill()
+                    obj.split()
                     obj2.kill()
             
-
-
         pygame.display.flip()
 
         # limit the framerate to 60 FPS
         dt = clock.tick(60) / 1000
 
         
-
 
 
 
